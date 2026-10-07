@@ -1,0 +1,2627 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="theme-color"
+        content="#302126">
+
+    <title>
+        Our Little Story ❤️
+    </title>
+
+
+    <!-- =========================================
+         GOOGLE FONT
+    ========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background: #f9f4f1;
+
+            color: #332525;
+
+            overflow-x: hidden;
+
+            padding-bottom: 100px;
+
+        }
+
+
+        /* ==================================================
+           SCROLLBAR
+        ================================================== */
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: #f9f4f1;
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background: #9b6870;
+            border-radius: 10px;
+        }
+
+
+        /* ==================================================
+           BOTTOM NAVIGATION
+        ================================================== */
+
+        .bottom-nav {
+
+            position: fixed;
+
+            left: 50%;
+
+            bottom: 18px;
+
+            transform: translateX(-50%);
+
+            width: calc(100% - 30px);
+
+            max-width: 520px;
+
+            height: 70px;
+
+            padding: 6px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-around;
+
+            background:
+                rgba(48, 33, 38, 0.88);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border:
+                1px solid
+                rgba(255,255,255,.12);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,.25);
+
+            z-index: 900;
+
+        }
+
+
+        .nav-item {
+
+            position: relative;
+
+            width: 68px;
+
+            height: 58px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 3px;
+
+            color:
+                rgba(255,255,255,.48);
+
+            text-decoration: none;
+
+            border-radius: 18px;
+
+            transition:
+                .35s ease;
+
+        }
+
+
+        .nav-icon {
+
+            font-size: 21px;
+
+            line-height: 1;
+
+            transition:
+                .35s ease;
+
+        }
+
+
+        .nav-text {
+
+            font-size: 8px;
+
+            letter-spacing: .5px;
+
+            transition:
+                .35s ease;
+
+        }
+
+
+        .nav-item.active {
+
+            color: #ffffff;
+
+            background:
+                rgba(255,255,255,.11);
+
+        }
+
+
+        .nav-item.active::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 5px;
+
+            width: 4px;
+
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #e5aeb7;
+
+            box-shadow:
+                0 0 10px
+                rgba(229,174,183,.8);
+
+        }
+
+
+        .nav-item.active .nav-icon {
+
+            transform:
+                translateY(-2px)
+                scale(1.08);
+
+        }
+
+
+        .nav-item:hover {
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* ==================================================
+           MUSIC BUTTON
+        ================================================== */
+
+        .music-btn {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            width: 46px;
+
+            height: 46px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.3);
+
+            background:
+                rgba(30,15,20,.45);
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(12px);
+
+            z-index: 1000;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .music-btn:hover {
+
+            transform:
+                scale(1.08)
+                rotate(10deg);
+
+        }
+
+
+        .music-btn.playing {
+
+            animation:
+                musicPulse 1.5s infinite;
+
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+
+            min-height: 100vh;
+
+            background:
+
+                linear-gradient(
+                    rgba(40,20,25,.40),
+                    rgba(40,20,25,.65)
+                ),
+
+                url('assets/foto1.jpg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            height: 180px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    #f9f4f1
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 700px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: white;
+
+        }
+
+
+        .small-title {
+
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 25px;
+
+            opacity: .9;
+
+        }
+
+
+        .hero h1 {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size:
+                clamp(60px, 12vw, 120px);
+
+            line-height: .88;
+
+            font-weight: 400;
+
+        }
+
+
+        .hero h1 span {
+
+            font-style: italic;
+
+        }
+
+
+        .heart {
+
+            font-size: 35px;
+
+            margin: 30px 0;
+
+            animation:
+                heartbeat 2s infinite;
+
+        }
+
+
+        .hero-description {
+
+            max-width: 450px;
+
+            margin: auto;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            opacity: .9;
+
+        }
+
+
+        .start-btn {
+
+            margin-top: 35px;
+
+            padding: 15px 26px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.55);
+
+            border-radius: 50px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            color: white;
+
+            font-family: inherit;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(10px);
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .start-btn:hover {
+
+            background: white;
+
+            color: #5d3038;
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+        .start-btn span {
+
+            margin-left: 10px;
+
+        }
+
+
+        /* ==================================================
+           GENERAL
+        ================================================== */
+
+        section {
+
+            padding: 120px 7%;
+
+            scroll-margin-top: 30px;
+
+        }
+
+
+        .section-label {
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            color: #9b6870;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        h2 {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size:
+                clamp(38px, 6vw, 65px);
+
+            line-height: 1.1;
+
+            font-weight: 400;
+
+        }
+
+
+        /* ==================================================
+           INTRO
+        ================================================== */
+
+        .intro {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+
+        }
+
+
+        .intro > p:not(.section-label) {
+
+            max-width: 600px;
+
+            margin: 30px auto;
+
+            color: #715d5d;
+
+            line-height: 2;
+
+            font-size: 15px;
+
+        }
+
+
+        .big-heart {
+
+            font-size: 45px;
+
+            color: #a75867;
+
+            margin: 40px;
+
+        }
+
+
+        /* ==================================================
+           COUNTER
+        ================================================== */
+
+        .counter-section {
+
+            background: #302126;
+
+            color: white;
+
+            text-align: center;
+
+        }
+
+
+        .counter-section .section-label {
+
+            color: #d9aeb5;
+
+        }
+
+
+        .counter {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 55px;
+
+            margin-top: 60px;
+
+        }
+
+
+        .counter-item {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .counter-item strong {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 50px;
+
+            font-weight: 400;
+
+        }
+
+
+        .counter-item span {
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            opacity: .6;
+
+        }
+
+
+        /* ==================================================
+           GALLERY
+        ================================================== */
+
+        .photo-section {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+
+        .photo-text {
+
+            max-width: 650px;
+
+            margin-bottom: 60px;
+
+        }
+
+
+        .photo-text > p:last-child {
+
+            margin-top: 25px;
+
+            color: #715d5d;
+
+            line-height: 2;
+
+        }
+
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                1.3fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .photo {
+
+            height: 350px;
+
+            overflow: hidden;
+
+            border-radius: 5px;
+
+        }
+
+
+        .photo-big {
+
+            height: 500px;
+
+        }
+
+
+        .photo-wide {
+
+            grid-column: span 2;
+
+        }
+
+
+        .photo img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s ease;
+
+        }
+
+
+        .photo:hover img {
+
+            transform:
+                scale(1.05);
+
+        }
+
+
+        /* ==================================================
+           TIMELINE
+        ================================================== */
+
+        .timeline-section {
+
+            background: #eee2df;
+
+        }
+
+
+        .timeline {
+
+            max-width: 750px;
+
+            margin: 80px auto 0;
+
+        }
+
+
+        .timeline-item {
+
+            position: relative;
+
+            border-left:
+                1px solid
+                #bd9ca1;
+
+            padding:
+                0 0 70px 40px;
+
+        }
+
+
+        .timeline-item:last-child {
+
+            padding-bottom: 0;
+
+        }
+
+
+        .timeline-dot {
+
+            position: absolute;
+
+            left: -5px;
+
+            top: 4px;
+
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #9b6870;
+
+            box-shadow:
+                0 0 0 5px
+                rgba(155,104,112,.1);
+
+        }
+
+
+        .timeline-item span {
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            color: #9b6870;
+
+        }
+
+
+        .timeline-item h3 {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 32px;
+
+            font-weight: 400;
+
+            margin: 12px 0;
+
+        }
+
+
+        .timeline-item p {
+
+            color: #715d5d;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* ==================================================
+           LETTER
+        ================================================== */
+
+        .letter-section {
+
+            background: #f9f4f1;
+
+        }
+
+
+        .letter {
+
+            max-width: 650px;
+
+            margin:
+                70px auto 0;
+
+            padding:
+                60px 50px;
+
+            background: #fffdfb;
+
+            box-shadow:
+                0 20px 70px
+                rgba(60,30,30,.08);
+
+        }
+
+
+        .letter-top {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .letter h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .letter p {
+
+            color: #715d5d;
+
+            line-height: 2;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .letter .highlight {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 25px;
+
+            color: #7d4853;
+
+            margin: 40px 0;
+
+        }
+
+
+        .signature {
+
+            margin-top: 40px;
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 20px;
+
+        }
+
+
+        /* ==================================================
+           SURPRISE
+        ================================================== */
+
+        .surprise-section {
+
+            min-height: 80vh;
+
+            background:
+
+                linear-gradient(
+                    rgba(40,20,25,.72),
+                    rgba(40,20,25,.82)
+                ),
+
+                url('assets/foto4.jpg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+        }
+
+
+        .surprise-section .section-label {
+
+            color: #e4bcc2;
+
+        }
+
+
+        .surprise-btn {
+
+            margin-top: 40px;
+
+            padding: 16px 30px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #553038;
+
+            font-family: inherit;
+
+            cursor: pointer;
+
+            transition:
+                .3s ease;
+
+        }
+
+
+        .surprise-btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,.25);
+
+        }
+
+
+        /* ==================================================
+           MODAL
+        ================================================== */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(20,10,15,.8);
+
+            backdrop-filter:
+                blur(8px);
+
+            z-index: 9999;
+
+        }
+
+
+        .modal.active {
+
+            display: flex;
+
+        }
+
+
+        .modal-content {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 500px;
+
+            padding: 60px 40px;
+
+            background: #fffaf7;
+
+            text-align: center;
+
+            animation:
+                modalIn .5s ease;
+
+        }
+
+
+        .close-btn {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 20px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 30px;
+
+            color: #715d5d;
+
+            cursor: pointer;
+
+        }
+
+
+        .modal-heart {
+
+            font-size: 50px;
+
+            color: #a75867;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .modal-content h2 {
+
+            font-size: 45px;
+
+        }
+
+
+        .modal-content p {
+
+            margin-top: 20px;
+
+            color: #715d5d;
+
+            line-height: 1.8;
+
+        }
+
+
+        .final-text {
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 25px;
+
+            color:
+                #7d4853 !important;
+
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+
+            background: #302126;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            font-family:
+                'Playfair Display',
+                serif;
+
+        }
+
+
+        footer p {
+
+            margin-top: 10px;
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
+            font-size: 11px;
+
+            opacity: .5;
+
+        }
+
+
+        /* ==================================================
+           REVEAL ANIMATION
+        ================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(40px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+
+        }
+
+
+        .reveal.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* ==================================================
+           KEYFRAMES
+        ================================================== */
+
+        @keyframes heartbeat {
+
+            0%,100% {
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    scale(1.2);
+
+            }
+
+        }
+
+
+        @keyframes modalIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.9)
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes musicPulse {
+
+            0%,100% {
+
+                box-shadow:
+                    0 0 0
+                    rgba(229,174,183,0);
+
+            }
+
+            50% {
+
+                box-shadow:
+                    0 0 20px
+                    rgba(229,174,183,.45);
+
+            }
+
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 700px) {
+
+            body {
+
+                padding-bottom: 90px;
+
+            }
+
+
+            section {
+
+                padding:
+                    90px 25px;
+
+            }
+
+
+            .bottom-nav {
+
+                bottom: 12px;
+
+                width:
+                    calc(100% - 24px);
+
+                height: 64px;
+
+                border-radius: 21px;
+
+            }
+
+
+            .nav-item {
+
+                width: 56px;
+
+                height: 52px;
+
+            }
+
+
+            .nav-icon {
+
+                font-size: 19px;
+
+            }
+
+
+            .nav-text {
+
+                font-size: 7px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 65px;
+
+            }
+
+
+            .small-title {
+
+                font-size: 9px;
+
+                letter-spacing: 3px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 13px;
+
+            }
+
+
+            .counter {
+
+                gap: 18px;
+
+            }
+
+
+            .counter-item strong {
+
+                font-size: 30px;
+
+            }
+
+
+            .counter-item span {
+
+                font-size: 8px;
+
+            }
+
+
+            .gallery {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .photo,
+            .photo-big {
+
+                height: 400px;
+
+            }
+
+
+            .photo-wide {
+
+                grid-column:
+                    span 1;
+
+            }
+
+
+            .letter {
+
+                padding:
+                    40px 25px;
+
+            }
+
+
+            .letter h2 {
+
+                font-size: 35px;
+
+            }
+
+
+            .timeline-item h3 {
+
+                font-size: 28px;
+
+            }
+
+
+            .modal-content {
+
+                padding:
+                    50px 25px;
+
+            }
+
+
+            .modal-content h2 {
+
+                font-size: 38px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         MUSIC
+    ================================================== -->
+
+    <audio
+        id="music"
+        loop>
+
+        <source
+            src="assets/music.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <button
+        class="music-btn"
+        id="musicBtn"
+        aria-label="Music">
+
+        ♫
+
+    </button>
+
+
+    <!-- ==================================================
+         BOTTOM NAVIGATION
+    ================================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <a
+            href="#home"
+            class="nav-item active">
+
+            <span class="nav-icon">
+                ⌂
+            </span>
+
+            <span class="nav-text">
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="#story"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ♡
+            </span>
+
+            <span class="nav-text">
+                Story
+            </span>
+
+        </a>
+
+
+        <a
+            href="#moments"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ▧
+            </span>
+
+            <span class="nav-text">
+                Moments
+            </span>
+
+        </a>
+
+
+        <a
+            href="#journey"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ◷
+            </span>
+
+            <span class="nav-text">
+                Journey
+            </span>
+
+        </a>
+
+
+        <a
+            href="#letter"
+            class="nav-item">
+
+            <span class="nav-icon">
+                ♡
+            </span>
+
+            <span class="nav-text">
+                Letter
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section
+        class="hero"
+        id="home">
+
+
+        <div class="hero-content">
+
+
+            <p class="small-title">
+
+                TO MY FAVORITE PERSON
+
+            </p>
+
+
+            <h1>
+
+                Happy<br>
+
+                <span>
+                    Anniversary
+                </span>
+
+            </h1>
+
+
+            <div class="heart">
+
+                ♥
+
+            </div>
+
+
+            <p class="hero-description">
+
+                Sebuah cerita kecil tentang kita,
+                dan semua alasan kenapa aku masih
+                memilihmu.
+
+            </p>
+
+
+            <button
+                class="start-btn"
+                id="startBtn">
+
+                Open Our Story
+
+                <span>
+                    ↓
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         STORY
+    ================================================== -->
+
+    <section
+        class="intro reveal"
+        id="story">
+
+
+        <p class="section-label">
+
+            OUR STORY
+
+        </p>
+
+
+        <h2>
+
+            Dari sekian banyak<br>
+            manusia di dunia...
+
+        </h2>
+
+
+        <p>
+
+            entah bagaimana semesta mempertemukan
+            aku dengan kamu.
+
+        </p>
+
+
+        <div class="big-heart">
+
+            ♥
+
+        </div>
+
+
+        <p>
+
+            Dan ternyata, bertemu denganmu
+            adalah salah satu hal terbaik
+            yang pernah terjadi dalam hidupku.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         COUNTER
+    ================================================== -->
+
+    <section
+        class="counter-section reveal">
+
+
+        <p class="section-label">
+
+            SINCE THE DAY WE MET
+
+        </p>
+
+
+        <h2>
+
+            Our Time Together
+
+        </h2>
+
+
+        <div class="counter">
+
+
+            <div class="counter-item">
+
+                <strong id="days">
+                    0
+                </strong>
+
+                <span>
+                    DAYS
+                </span>
+
+            </div>
+
+
+            <div class="counter-item">
+
+                <strong id="hours">
+                    0
+                </strong>
+
+                <span>
+                    HOURS
+                </span>
+
+            </div>
+
+
+            <div class="counter-item">
+
+                <strong id="minutes">
+                    0
+                </strong>
+
+                <span>
+                    MINUTES
+                </span>
+
+            </div>
+
+
+            <div class="counter-item">
+
+                <strong id="seconds">
+                    0
+                </strong>
+
+                <span>
+                    SECONDS
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         MOMENTS
+    ================================================== -->
+
+    <section
+        class="photo-section reveal"
+        id="moments">
+
+
+        <div class="photo-text">
+
+
+            <p class="section-label">
+
+                OUR FAVORITE MOMENTS
+
+            </p>
+
+
+            <h2>
+
+                Little moments,<br>
+                big memories.
+
+            </h2>
+
+
+            <p>
+
+                Mungkin buat orang lain ini cuma foto biasa.
+                Tapi buat aku, setiap foto punya cerita
+                yang nggak akan pernah aku lupa.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="gallery">
+
+
+            <div
+                class="photo photo-big">
+
+                <img
+                    src="assets/foto1.jpeg"
+                    alt="Our Moment">
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="assets/foto2.jpeg"
+                    alt="Our Moment">
+
+            </div>
+
+
+            <div class="photo">
+
+                <img
+                    src="assets/foto3.jpeg"
+                    alt="Our Moment">
+
+            </div>
+
+
+            <div
+                class="photo photo-wide">
+
+                <img
+                    src="assets/foto4.jpeg"
+                    alt="Our Moment">
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         JOURNEY
+    ================================================== -->
+
+    <section
+        class="timeline-section reveal"
+        id="journey">
+
+
+        <p class="section-label">
+
+            OUR JOURNEY
+
+        </p>
+
+
+        <h2>
+
+            Every chapter<br>
+            brought us here.
+
+        </h2>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <span>
+                    2022
+                </span>
+
+                <h3>
+                    PDKT?? Eh Emng kita pdkt dulu yaa hehe
+                </h3>
+
+                <p>
+
+                    Hari dimana semuanya dimulai.
+                    perempuan yang tidak pernah terbayangkan dalam hari hari aku.
+                    hadir tiba tiba anjir... ketawanyaa, senyumnyaa, tingkahnyaa dan semuanyaa buat hidup aku jadi semangatt.
+                    Ade Irhmanah Rosadih ituu namanyaa.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <span>
+                    2023
+                </span>
+
+                <h3>
+                    Chapter Sedih yaa huhhh...
+                </h3>
+
+                <p>
+                    2 Tahun kita sekelas... baru di moment ini kita berpisah
+                    IPS 1 X IPS 5 Anjayyy,
+                    Tapi Semakin banyak cerita,
+                    semakin banyak tawa,
+                    dan semakin banyak alasan
+                    untuk tetap bersama.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <span>
+                    2024
+                </span>
+
+                <h3>
+                    Another Chapter
+                </h3>
+
+                <p>
+
+                    Kita melewati banyak hal.
+                    Ada bahagia, ada sedih,
+                    tapi kita masih memilih
+                    untuk saling bersama lov u sengkuuuuuu.
+
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <span>
+                    2025 - 2026
+                </span>
+
+                <h3>
+                    Still Us ❤️
+                </h3>
+
+                <p>
+
+                    Dan hari ini,
+                    kita masih di sini.
+                    Masih bersama.
+                    Masih menjadi kita.
+                    Semoga Apa yang kita inginkan selalu menjadi yang terbaik ya sengku.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         LOVE LETTER
+    ================================================== -->
+
+    <section
+        class="letter-section reveal"
+        id="letter">
+
+
+        <p class="section-label">
+
+            A LETTER FOR YOU
+
+        </p>
+
+
+        <div class="letter">
+
+
+            <div class="letter-top">
+
+                ♡
+
+            </div>
+
+
+            <h2>
+
+                Dear Ade Irhamnah Rosadih,
+
+            </h2>
+
+
+            <p>
+
+                Aku mungkin nggak selalu pandai
+                mengungkapkan apa yang aku rasakan.
+
+            </p>
+
+
+            <p>
+
+                Tapi kalau ada satu hal yang ingin
+                kamu tahu, aku ingin kamu tahu bahwa
+                aku sangat bersyukur pernah bertemu
+                kamuuuuu.
+
+            </p>
+
+
+            <p>
+
+                Terima kasih sudah hadir.
+                Terima kasih sudah bertahan.
+                Terima kasih untuk setiap tawa,
+                setiap cerita, dan setiap momen
+                yang kita lewati bersama.
+
+            </p>
+
+
+            <p>
+
+                Aku nggak tahu apa yang akan terjadi
+                besok, tahun depan, atau bertahun-tahun
+                dari sekarang.
+
+            </p>
+
+
+            <p class="highlight">
+
+                Tapi kalau aku boleh memilih,
+                aku ingin tetap memilih kamu.
+
+            </p>
+
+
+            <p>
+
+                Happy Anniversary, sayang.
+                ❤️
+
+            </p>
+
+
+            <div class="signature">
+
+                With love,<br>
+
+                <strong>
+                    Heri Herlambang
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         SURPRISE
+    ================================================== -->
+
+    <section class="surprise-section">
+
+
+        <div>
+
+
+            <p class="section-label">
+
+                ONE LAST THING...
+
+            </p>
+
+
+            <h2>
+
+                I have one more<br>
+                thing to say.
+
+            </h2>
+
+
+            <button
+                class="surprise-btn"
+                id="surpriseBtn">
+
+                Open My Heart ❤️
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         MODAL
+    ================================================== -->
+
+    <div
+        class="modal"
+        id="modal">
+
+
+        <div class="modal-content">
+
+
+            <button
+                class="close-btn"
+                id="closeBtn">
+
+                ×
+
+            </button>
+
+
+            <div class="modal-heart">
+
+                ♥
+
+            </div>
+
+
+            <h2>
+
+                I Choose You.
+
+            </h2>
+
+
+            <p>
+
+                Kemarin, hari ini,
+                dan semoga untuk banyak hari
+                yang akan datang.
+
+            </p>
+
+
+            <p class="final-text">
+
+                Happy Anniversary ❤️
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+
+        <div>
+
+            Made with ♥
+
+        </div>
+
+
+        <p>
+
+            Our little story will continue...
+
+        </p>
+
+
+    </footer>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+
+        /* ==================================================
+           ELEMENTS
+        ================================================== */
+
+        const music =
+            document.getElementById("music");
+
+        const musicBtn =
+            document.getElementById("musicBtn");
+
+        const startBtn =
+            document.getElementById("startBtn");
+
+        const surpriseBtn =
+            document.getElementById("surpriseBtn");
+
+        const modal =
+            document.getElementById("modal");
+
+        const closeBtn =
+            document.getElementById("closeBtn");
+
+        const navItems =
+            document.querySelectorAll(".nav-item");
+
+        const sections =
+            document.querySelectorAll(
+                "#home, #story, #moments, #journey, #letter"
+            );
+
+        const reveals =
+            document.querySelectorAll(".reveal");
+
+
+        /* ==================================================
+           MUSIC
+        ================================================== */
+
+        let playing = false;
+
+
+        function playMusic() {
+
+            music.play()
+
+                .then(() => {
+
+                    playing = true;
+
+                    musicBtn.innerHTML =
+                        "♫";
+
+                    musicBtn.classList.add(
+                        "playing"
+                    );
+
+                })
+
+                .catch(() => {
+
+                    console.log(
+                        "Autoplay diblokir browser."
+                    );
+
+                });
+
+        }
+
+
+        musicBtn.addEventListener(
+            "click",
+            () => {
+
+                if (playing) {
+
+                    music.pause();
+
+                    playing = false;
+
+                    musicBtn.innerHTML =
+                        "🔇";
+
+                    musicBtn.classList.remove(
+                        "playing"
+                    );
+
+                } else {
+
+                    playMusic();
+
+                }
+
+            }
+        );
+
+
+        /* ==================================================
+           OPEN STORY
+        ================================================== */
+
+        startBtn.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .getElementById("story")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                playMusic();
+
+            }
+        );
+
+
+        /* ==================================================
+           RELATIONSHIP COUNTER
+        ================================================== */
+
+        /*
+            ==========================================
+            GANTI TANGGAL INI
+            ==========================================
+
+            Contoh:
+
+            17 Agustus 2024
+
+            menjadi:
+
+            2024-08-17
+
+        */
+
+        const startDate =
+            new Date(
+                "2022-08-19T00:00:00"
+            );
+
+
+        function updateCounter() {
+
+            const now =
+                new Date();
+
+            const difference =
+                now - startDate;
+
+
+            if (difference < 0) {
+
+                return;
+
+            }
+
+
+            const days =
+                Math.floor(
+                    difference /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    difference /
+                    (1000 * 60 * 60)
+                ) % 24;
+
+
+            const minutes =
+                Math.floor(
+                    difference /
+                    (1000 * 60)
+                ) % 60;
+
+
+            const seconds =
+                Math.floor(
+                    difference /
+                    1000
+                ) % 60;
+
+
+            document
+                .getElementById("days")
+                .textContent =
+                days;
+
+
+            document
+                .getElementById("hours")
+                .textContent =
+                hours;
+
+
+            document
+                .getElementById("minutes")
+                .textContent =
+                minutes;
+
+
+            document
+                .getElementById("seconds")
+                .textContent =
+                seconds;
+
+        }
+
+
+        updateCounter();
+
+
+        setInterval(
+            updateCounter,
+            1000
+        );
+
+
+        /* ==================================================
+           SCROLL REVEAL
+        ================================================== */
+
+        function revealOnScroll() {
+
+            reveals.forEach(
+                element => {
+
+                    const elementTop =
+                        element
+                            .getBoundingClientRect()
+                            .top;
+
+
+                    const windowHeight =
+                        window.innerHeight;
+
+
+                    if (
+                        elementTop <
+                        windowHeight - 100
+                    ) {
+
+                        element.classList.add(
+                            "show"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+
+        revealOnScroll();
+
+
+        /* ==================================================
+           ACTIVE NAVIGATION
+        ================================================== */
+
+        function updateActiveNav() {
+
+            let current =
+                "home";
+
+
+            sections.forEach(
+                section => {
+
+                    const sectionTop =
+                        section.offsetTop - 250;
+
+
+                    if (
+                        window.scrollY >=
+                        sectionTop
+                    ) {
+
+                        current =
+                            section.id;
+
+                    }
+
+                }
+            );
+
+
+            navItems.forEach(
+                item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+
+                    if (
+                        item.getAttribute("href") ===
+                        "#" + current
+                    ) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            updateActiveNav
+        );
+
+
+        updateActiveNav();
+
+
+        /* ==================================================
+           NAV CLICK
+        ================================================== */
+
+        navItems.forEach(
+            item => {
+
+                item.addEventListener(
+                    "click",
+                    () => {
+
+                        navItems.forEach(
+                            nav => {
+
+                                nav.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==================================================
+           SURPRISE MODAL
+        ================================================== */
+
+        surpriseBtn.addEventListener(
+            "click",
+            () => {
+
+                modal.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+
+        closeBtn.addEventListener(
+            "click",
+            () => {
+
+                modal.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target ===
+                    modal
+                ) {
+
+                    modal.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* ==================================================
+           ESC CLOSE MODAL
+        ================================================== */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    modal.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+
+</html>
